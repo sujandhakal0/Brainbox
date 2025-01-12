@@ -5,6 +5,9 @@ import connectDatabase from "./config/db";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.routes";
 import contentRoutes from "./routes/content.routes";
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 connectDatabase();
 const app = express();
