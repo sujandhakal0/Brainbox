@@ -13,7 +13,7 @@ export const createContent = async (
   res: Response
 ) => {
   try {
-    const { type, title, link, tags } = req.body;
+    const { type, title, body, link, tags } = req.body;
 
     // Ensure the user is authenticated
     if (!req.userId) {
@@ -29,9 +29,10 @@ export const createContent = async (
     const content = await Content.create({
       type,
       title,
+      body,
       link,
       userId: req.userId,
-      tags: tags || [], // Use provided tags or default to an empty array
+      tags: tags || [], 
     });
 
     // Return success response

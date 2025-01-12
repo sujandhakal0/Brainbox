@@ -1,9 +1,20 @@
-import React from 'react'
+
+
+import SideBarItems from './SideBarItems';
+import { FaNoteSticky } from 'react-icons/fa6';
+
 
 const SideBar = () => {
     return (
-        <div>SideBar</div>
-    )
-}
+        <div className="  w-[8rem] 
+        ">
+            <div className='flex flex-col gap-2'>
+                <SideBarItems icon={<FaNoteSticky />} text="Snippets" />
+            </div>
 
-export default SideBar
+
+        </div>
+    );
+};
+
+export default SideBar;

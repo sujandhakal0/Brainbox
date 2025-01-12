@@ -65,13 +65,15 @@ export const signin = async (req: Request, res: Response) => {
 
     if (!passwordHashed) {
       res.status(401).json({
+        error: "Unauthorized", // this can be used as a key indicating the type of error
         message: "Invalid credentials",
       });
-      return; 
+      return;
     }
 
     if (!existingUser) {
       res.status(404).json({
+        error: "Not Found", // this can indicate that the user was not found
         message: "User not found",
       });
     }
@@ -79,6 +81,7 @@ export const signin = async (req: Request, res: Response) => {
     const isPasswordValid = await bcrypt.compare(password, passwordHashed);
     if (!isPasswordValid) {
       res.status(401).json({
+        error: "Unauthorized",
         message: "Invalid credentials",
       });
     }
