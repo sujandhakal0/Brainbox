@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc", 
-    "start": "node ./dist/index.js" 
+    "build": "npm ci && cd backend && npm run build", 
+    "start": "cd backend && npm start" 
   },
   "keywords": [],
   "author": "",
